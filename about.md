@@ -4,12 +4,12 @@ title: About
 permalink: /about/
 ---
 
-Some information about you!
+I am a Research Engineer who builds generative ai systems for work and fun. So glad to meet you. ✨ 
 
-### More Information
+### Interests and passion 
 
 A place to include any other types of information that you'd like to include about yourself.
 
 ### Contact me
 
-[email@domain.com](mailto:email@domain.com)
+[shamima2hossain@email.com](mailto: shamima2hossain@gmail.com)
