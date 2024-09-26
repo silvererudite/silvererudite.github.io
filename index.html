@@ -2,9 +2,9 @@
 layout: default
 ---
 
-<div class="about-page">
+<div class="page">
   <h1>{{ site.pages | where: "title", "About" | first.title }}</h1>
-  <div class="about-content">
+  <div class="entry">
     {{ site.pages | where: "title", "About" | first.content }}
   </div>
 </div>
