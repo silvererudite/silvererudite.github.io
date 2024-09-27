@@ -44,13 +44,13 @@ Here, you'll find summaries of selected projects with links to detailed write-up
 - **Outcome:** Showcase any key contributions or novel approaches.
 - **Link:** [Project Details](URL)
 
-### Project 3: Title
-**Description:** Provide insight into another research-focused project.
+### Project 3: Image feature aggregation using Attention mechanisms
+**Description:** I demonstrated a use case of feature aggregation using the concept of attention to images. I utilized pretrained CLIP embeddings which already have knowledge of images.
 
-- **Domain:** Knowledge Graphs and Fact Correction
-- **Technologies Used:** NetworkX, Transformers
-- **Outcome:** Mention how this project adds value to your research profile.
-- **Link:** [Project Details](URL)
+- **Research area:** Interpreting image tokens using simple self-attention and multi-head attention. 
+- **Technologies Used:** CLIP model 
+- **Outcome:** I built this simple project to exercise my understanding of attention mechanisms by coding up one from scratch. To challenge myself, I only used images and python and came up with a possible use case to make the exercise practical. 
+- **Link:** [Image feature aggregation with attention mechanism](https://github.com/silvererudite/attention_exploration/blob/main/apply_attention_to_image.ipynb)
 
 ## Ongoing and Future Work
 
