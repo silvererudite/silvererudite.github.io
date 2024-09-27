@@ -6,7 +6,7 @@ permalink: /projects/
 
 # Research Projects
 
-Welcome to my project showcase, where I explore and prototype use cases of Large Language Models (LLMs), Vision-Language Models (VLMs), and other AI/ML technologies. These projects represent my journey and aspirations as a PhD student and researcher in the field of Generative AI.
+Welcome to my project showcase, these are some of the projects where I explore and prototype use cases of Large Language Models (LLMs), Vision-Language Models (VLMs), and other AI/ML technologies. I aim to demonstrate agentic and reasoning capabilities from different 
 
 ## Table of Contents
 - [Introduction](#introduction)
