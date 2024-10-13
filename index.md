@@ -16,7 +16,7 @@ I began exploring deep vision systems by building quirky prototypes for fun, whi
 - Building and maintaining Face Anti-spoofing engine using Deep vision algorithms
 - Utilize MLOPs best practices to efficiently deploy ML models at scale using AWS solutions such as AWS Lambda, Sagemaker
 
-### Dec 2021 - Mar 2022 Outreachy Developer advocate intern for TensorflowJs (Internship)
+### Dec 2021 - Mar 2022: Outreachy Developer advocate intern for TensorflowJs (Internship)
 - Created reusable, technical demos for TensorflowJs
 - Researched, defined scope and developed demos of ML use-cases from scratch
 - Discovered and provided constructive feedback of alignment issues with pretrained models 
@@ -28,7 +28,7 @@ I began exploring deep vision systems by building quirky prototypes for fun, whi
 - Worked on small-scale web applications
 - Responsible for pixel-perfect conversion of UI design to web page
 
-### May 2020 - Sep 2020 United Nations OCHAUnited Nations OCHA (Volunteering)
+### May 2020 - Sep 2020: United Nations OCHA (Volunteering)
 Disaster and Humanitarian Relief during COVID outbreak
 - Supported data preparation and visualisation for poilicy analysis related to GIMAC project in Ethiopia and Iraq.
 - Designed several components and GIMAC website.
