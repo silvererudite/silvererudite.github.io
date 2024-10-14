@@ -4,11 +4,10 @@ title: "Projects"
 permalink: /projects/
 ---
 
-# Research Projects
+# Selected Projects
 
-These are some of the projects where I explore and prototype use cases of Large Language Models (LLMs), Vision-Language Models (VLMs), and other AI/ML technologies. I aim to demonstrate agentic and reasoning capabilities from LLMs and VLMs. Each project below demonstrates practical applications, innovative methodologies, or unique insights into how LLMs and VLMs work. 
+These are some of the projects where I perform curiosity-driven experiments Large Language Models (LLMs), Vision-Language Models (VLMs), and also build working prototypes for production deployment of deep learning algorithms using cloud technologies. I aim to demonstrate agentic and reasoning capabilities from LLMs and VLMs. Each project below shows practical applications, experimental methodologies, or unique insights into how LLMs and VLMs work. 
 
-## Selected Projects
 
 ### Project 1: Factual image captioning using VLM and knowledge graphs
 **Description:** VLMs struggle to output factually correct image captions, they either generate partial facts or completely hallucinate. Increasing model size further worsens the ability. My experiments suggest that hallucination in VLMs is often linked to poor hierarchical knowledge because spatial understanding is a crucial factor in Visual understanding. I demonstrate how incorporating hierarchical and structured knowledge such as country->city->landmark help make vlm responses for factual image captioning a promising path to explore. I also systematically ablate different kinds of hierarchical knowledge augmentation and compare their results.  
