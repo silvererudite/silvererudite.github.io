@@ -36,7 +36,7 @@ These are some of the projects where I perform curiosity-driven experiments Larg
 
 ## Ongoing and Future Work
 
-I'm currently working on projects that further explore the integration of LLMs and VLMs in multimodal reasoning, fact-checking, and in genreral I am interested in understanding their reasoning frameworks. 
+I'm currently working on projects that further explore the integration of LLMs and VLMs in multimodal reasoning, fact-checking, and in general I am interested in exploring generative ai.
 ## Contact and Collaboration
 
 I am open to collaboration and discussions around AI research. Feel free to reach out if you're interested in my work or have suggestions for further research.
