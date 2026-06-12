@@ -3,16 +3,15 @@
    tweak them in one place if you want a different mood.
    ============================================================= */
 :root {
-  color-scheme: dark;
-  --paper: #0d1117;     /* canvas */
-  --paper-2: #161b22;   /* cards / hover */
-  --ink: #e6edf3;       /* primary text */
-  --ink-soft: #9ca3af;  /* secondary text */
-  --ink-faint: #7d8590; /* metadata */
-  --accent: #58a6ff;    /* azure */
-  --accent-soft: #79b8ff;
-  --cream: #e8e1cd;     /* warm serif highlight */
-  --rule: #30363d;      /* hairline dividers */
+  color-scheme: light;
+  --paper: #f7f5ef;     /* warm ivory canvas */
+  --paper-2: #ede9df;   /* cards / hover */
+  --ink: #232019;       /* warm near-black */
+  --ink-soft: #5e584d;  /* secondary text */
+  --ink-faint: #918a7c; /* metadata */
+  --accent: #2f726a;    /* deep teal */
+  --accent-soft: #4e9389;
+  --rule: #e2dcd0;      /* hairline dividers */
   --max: 720px;
   --pad: 24px;
 }
@@ -91,7 +90,7 @@ a:hover { color: var(--accent-soft); }
 .hero-name {
   font-size: clamp(40px, 7vw, 58px);
   margin: 0 0 14px;
-  color: var(--cream);
+  color: var(--ink);
 }
 .hero-tagline {
   font-size: 20px;
@@ -233,7 +232,7 @@ a:hover { color: var(--accent-soft); }
   top: 2px;
   font-family: "EB Garamond", serif;
   font-size: 13px;
-  color: var(--cream);
+  color: var(--accent);
   font-variant-numeric: tabular-nums;
 }
 .pub-title { font-size: 18px; color: var(--ink); margin: 0 0 4px; }
