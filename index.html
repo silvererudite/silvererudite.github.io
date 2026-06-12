@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Name</title>
+  <meta name="description" content="Personal site — research, projects, and writing." />
+
+  <!-- Open Graph (nice link previews when shared) -->
+  <meta property="og:title" content="Your Name" />
+  <meta property="og:description" content="Research, projects, and writing." />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- ============ Header / Nav ============ -->
+  <header class="site-header">
+    <nav class="nav container">
+      <a class="nav-brand" href="#top" data-bind="name">Your Name</a>
+      <ul class="nav-links">
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#blog">Writing</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container" id="top">
+    <!-- ============ Hero ============ -->
+    <section class="hero">
+      <h1 class="hero-name" data-bind="name">Your Name</h1>
+      <p class="hero-tagline" data-bind="tagline"></p>
+      <p class="hero-intro" data-bind="intro"></p>
+      <div class="hero-meta">
+        <span class="hero-location" data-bind="location"></span>
+        <ul class="hero-links" id="hero-links"><!-- injected --></ul>
+      </div>
+    </section>
+
+    <!-- ============ Projects ============ -->
+    <section id="projects" class="section">
+      <div class="section-head">
+        <h2>Projects</h2>
+        <span class="section-rule"></span>
+      </div>
+      <div class="project-list" id="project-list"><!-- injected --></div>
+    </section>
+
+    <!-- ============ Publications ============ -->
+    <section id="publications" class="section">
+      <div class="section-head">
+        <h2>Publications</h2>
+        <span class="section-rule"></span>
+      </div>
+      <ol class="pub-list" id="pub-list"><!-- injected --></ol>
+    </section>
+
+    <!-- ============ Blog / Writing ============ -->
+    <section id="blog" class="section">
+      <div class="section-head">
+        <h2>Writing</h2>
+        <span class="section-rule"></span>
+        <a class="section-action" id="substack-link" href="#" target="_blank" rel="noopener">
+          All posts &rarr;
+        </a>
+      </div>
+      <div class="post-grid" id="post-grid">
+        <p class="post-loading">Loading posts&hellip;</p>
+      </div>
+    </section>
+
+    <!-- ============ About ============ -->
+    <section id="about" class="section">
+      <div class="section-head">
+        <h2>About</h2>
+        <span class="section-rule"></span>
+      </div>
+      <div class="about-body">
+        <p data-bind="intro"></p>
+        <p class="about-cv">
+          <a id="cv-link" href="#" target="_blank" rel="noopener">Download CV (PDF) &rarr;</a>
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ Footer ============ -->
+  <footer class="site-footer container">
+    <span class="footer-name" data-bind="name"></span>
+    <ul class="footer-links" id="footer-links"><!-- injected --></ul>
+  </footer>
+
+  <script src="config.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
