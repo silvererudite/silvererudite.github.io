@@ -3,14 +3,16 @@
    tweak them in one place if you want a different mood.
    ============================================================= */
 :root {
-  --paper: #faf9f6;
-  --paper-2: #f3f1ea;   /* faint card / hover */
-  --ink: #1a1a1a;
-  --ink-soft: #55514a;  /* secondary text */
-  --ink-faint: #8a857c; /* metadata */
-  --accent: #8b5e3c;    /* muted terracotta */
-  --accent-soft: #b08968;
-  --rule: #e4e0d6;      /* hairline dividers */
+  color-scheme: dark;
+  --paper: #0d1117;     /* canvas */
+  --paper-2: #161b22;   /* cards / hover */
+  --ink: #e6edf3;       /* primary text */
+  --ink-soft: #9ca3af;  /* secondary text */
+  --ink-faint: #7d8590; /* metadata */
+  --accent: #58a6ff;    /* azure */
+  --accent-soft: #79b8ff;
+  --cream: #e8e1cd;     /* warm serif highlight */
+  --rule: #30363d;      /* hairline dividers */
   --max: 720px;
   --pad: 24px;
 }
@@ -39,7 +41,7 @@ body {
 }
 
 h1, h2, h3 {
-  font-family: "Fraunces", Georgia, serif;
+  font-family: "EB Garamond", Georgia, serif;
   font-weight: 500;
   letter-spacing: -0.01em;
   line-height: 1.15;
@@ -64,7 +66,7 @@ a:hover { color: var(--accent-soft); }
   height: 60px;
 }
 .nav-brand {
-  font-family: "Fraunces", Georgia, serif;
+  font-family: "EB Garamond", Georgia, serif;
   font-size: 18px;
   font-weight: 600;
   color: var(--ink);
@@ -89,6 +91,7 @@ a:hover { color: var(--accent-soft); }
 .hero-name {
   font-size: clamp(40px, 7vw, 58px);
   margin: 0 0 14px;
+  color: var(--cream);
 }
 .hero-tagline {
   font-size: 20px;
@@ -228,9 +231,9 @@ a:hover { color: var(--accent-soft); }
   position: absolute;
   left: 0;
   top: 2px;
-  font-family: "Fraunces", serif;
+  font-family: "EB Garamond", serif;
   font-size: 13px;
-  color: var(--accent-soft);
+  color: var(--cream);
   font-variant-numeric: tabular-nums;
 }
 .pub-title { font-size: 18px; color: var(--ink); margin: 0 0 4px; }
@@ -276,7 +279,7 @@ a:hover { color: var(--accent-soft); }
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: "Fraunces", serif;
+  font-family: "EB Garamond", serif;
   font-size: 28px;
   color: var(--accent-soft);
 }
@@ -289,7 +292,7 @@ a:hover { color: var(--accent-soft); }
   margin-bottom: 5px;
 }
 .post-title {
-  font-family: "Fraunces", serif;
+  font-family: "EB Garamond", serif;
   font-size: 18px;
   font-weight: 500;
   color: var(--ink);
@@ -326,7 +329,7 @@ a:hover { color: var(--accent-soft); }
   color: var(--ink-faint);
   font-size: 14px;
 }
-.footer-name { font-family: "Fraunces", serif; }
+.footer-name { font-family: "EB Garamond", serif; }
 .footer-links { display: flex; gap: 18px; list-style: none; margin: 0; padding: 0; }
 .footer-links a { color: var(--ink-soft); font-size: 14px; }
 .footer-links a:hover { color: var(--accent); }
