@@ -7,15 +7,13 @@ window.SITE_CONFIG = {
   /* ---- Identity ---- */
   name: "Shamima Hossain",
   // A short line under your name. Keep it to one sentence.
-  tagline: "Reading models by reading their data — understanding model capabilities through training data and learning dynamics.",
+  tagline: "Reading models by reading their data.",
   // A slightly longer intro paragraph for the top of the page.
   intro:
     "I'm a researcher working on how language models acquire knowledge, biases, " +
-    "and task-specific skills across the stages of training. I'm an MSc student " +
-    "at BRAC University and a Senior Research Engineer at bKash, where I've built " +
-    "the training data and pipelines behind production LLM systems. I also study " +
-    "factuality in vision–language models and the interpretability of " +
-    "retrieval-augmented generation, and I write about first-principles thinking in AI.",
+    "and task-specific skills across the stages of training." +
+    "I work as a Senior Research Engineer at bKash, where I've contributed to" +
+    "the training data and pipelines behind production LLM systems.",
 
   // Where you are / what you're looking for (shown subtly in the header area).
   location: "Dhaka, Bangladesh",
