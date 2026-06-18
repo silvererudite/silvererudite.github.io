@@ -37,6 +37,78 @@
   <main class="container" id="top">
     <!-- ============ Hero ============ -->
     <section class="hero">
+      <!-- Decorative antique "specimen plate": bespoke moths & butterflies. Purely ornamental. -->
+      <div class="hero-ornament" aria-hidden="true">
+        <svg viewBox="0 0 320 480" xmlns="http://www.w3.org/2000/svg" role="presentation">
+          <defs>
+            <!-- butterfly, left half (mirrored for the right) -->
+            <g id="spc-bf" fill="none" stroke="var(--orn-teal)" stroke-width="1.4"
+               stroke-linecap="round" stroke-linejoin="round">
+              <path d="M157 122 C130 104 104 92 86 96 C74 100 74 116 84 126 C104 140 138 144 157 142 Z"/>
+              <path d="M158 148 C128 150 100 162 92 182 C86 196 96 214 112 214 C128 214 150 186 158 172 Z"/>
+              <path d="M110 212 L104 228 L118 216"/>
+              <path d="M156 134 L96 104 M156 134 L88 118 M156 138 L104 140"/>
+              <path d="M157 160 L100 178 M157 165 L108 200 M157 168 L130 210"/>
+              <path d="M158 100 C150 86 142 78 134 74"/>
+              <path d="M96 114 L92 122 M101 120 L97 128 M106 126 L102 134" stroke-width="1"/>
+              <circle cx="118" cy="188" r="7" stroke="var(--orn-rose)" stroke-width="1.4"/>
+              <circle cx="118" cy="188" r="2.4" fill="var(--orn-gold)" stroke="none"/>
+              <ellipse cx="134" cy="73" rx="3" ry="4" fill="var(--orn-gold)" stroke="none"/>
+            </g>
+            <!-- moth, left half (mirrored for the right) -->
+            <g id="spc-mo" fill="none" stroke="var(--orn-teal)" stroke-width="1.4"
+               stroke-linecap="round" stroke-linejoin="round">
+              <path d="M157 286 C120 282 92 298 78 324 C70 340 82 352 100 348 C126 342 150 320 158 308 Z"/>
+              <path d="M157 318 C134 322 112 334 106 350 C102 362 113 369 125 364 C141 357 152 336 158 328 Z"/>
+              <path d="M152 300 C126 304 104 318 92 334 M154 308 C130 312 110 326 100 340 M150 296 L96 326"/>
+              <path d="M157 330 L112 350 M157 336 L120 360"/>
+              <path d="M158 266 C150 256 144 248 140 242"/>
+              <path d="M156 262 L150 258 M153 257 L147 253 M150 252 L145 248 M147 247 L142 244" stroke-width="0.9"/>
+              <path d="M155 288 L149 292 M157 294 L150 298" stroke-width="1"/>
+              <circle cx="126" cy="346" r="5.5" stroke="var(--orn-rose)" stroke-width="1.3"/>
+              <circle cx="126" cy="346" r="2" fill="var(--orn-gold)" stroke="none"/>
+            </g>
+          </defs>
+
+          <!-- plate frame + corner accents -->
+          <rect x="22" y="22" width="276" height="436" fill="none"
+                stroke="var(--orn-gold)" stroke-width="1.6"/>
+          <rect x="29" y="29" width="262" height="422" fill="none"
+                stroke="var(--orn-gold)" stroke-width="0.8"/>
+          <g fill="var(--orn-rose)" stroke="none">
+            <path d="M22 22 l8 0 -8 8 z"/>
+            <path d="M298 22 l-8 0 8 8 z"/>
+            <path d="M22 458 l8 0 -8 -8 z"/>
+            <path d="M298 458 l-8 0 8 -8 z"/>
+          </g>
+
+          <!-- plate captions (the European scientific-plate twist) -->
+          <text x="40" y="46" fill="var(--orn-ink)"
+                font-family="'EB Garamond', Georgia, serif" font-style="italic" font-size="12">Pl. I</text>
+          <text x="56" y="156" fill="var(--orn-ink)"
+                font-family="'EB Garamond', Georgia, serif" font-style="italic" font-size="13">1.</text>
+          <text x="56" y="326" fill="var(--orn-ink)"
+                font-family="'EB Garamond', Georgia, serif" font-style="italic" font-size="13">2.</text>
+          <path d="M86 430 L234 430" stroke="var(--orn-gold)" stroke-width="0.8"/>
+          <text x="160" y="444" text-anchor="middle" fill="var(--orn-ink)"
+                font-family="'EB Garamond', Georgia, serif" font-size="11" letter-spacing="3.5">LEPIDOPTERA</text>
+
+          <!-- specimen 1 — butterfly -->
+          <path d="M160 110 C156 110 154 117 154 127 C154 152 156 188 160 200 C164 188 166 152 166 127 C166 117 164 110 160 110 Z"
+                fill="var(--orn-ink)" stroke="none"/>
+          <circle cx="160" cy="104" r="5" fill="var(--orn-ink)"/>
+          <use href="#spc-bf"/>
+          <use href="#spc-bf" transform="translate(320 0) scale(-1 1)"/>
+
+          <!-- specimen 2 — moth -->
+          <path d="M160 274 C153 274 150 284 150 297 C150 332 155 374 160 386 C165 374 170 332 170 297 C170 284 167 274 160 274 Z"
+                fill="var(--orn-ink)" stroke="none"/>
+          <circle cx="160" cy="269" r="6" fill="var(--orn-ink)"/>
+          <use href="#spc-mo"/>
+          <use href="#spc-mo" transform="translate(320 0) scale(-1 1)"/>
+        </svg>
+      </div>
+
       <h1 class="hero-name" data-bind="name">Your Name</h1>
       <p class="hero-tagline" data-bind="tagline"></p>
       <p class="hero-intro" data-bind="intro"></p>

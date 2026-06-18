@@ -14,6 +14,28 @@
   --rule: #e2dcd0;      /* hairline dividers */
   --max: 720px;
   --pad: 24px;
+
+  /* Belle Époque ornament palette — desaturated Wes-Anderson tones,
+     tuned to sit quietly over the ivory. Adjust the two opacities to
+     make the artwork bolder or barely-there. */
+  --orn-gold: #b0904c;          /* faded gilt (the keys) */
+  --orn-rose: #bd8079;          /* muted Mendl's salmon */
+  --orn-teal: #3a7b71;          /* the house teal, a touch softer */
+  --orn-ink:  #4a4438;          /* monogram */
+  --emblem-opacity: 0.72;       /* specimen plate in the left margin (clear space, so a touch bolder) */
+  --wallpaper-opacity: 0.05;    /* engraving-hatch wash behind everything */
+}
+
+/* Faint damask wallpaper behind all content (fixed, like real paper). */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: url("assets/wallpaper.svg") repeat;
+  background-size: 13px;
+  opacity: var(--wallpaper-opacity);
+  z-index: -3;
+  pointer-events: none;
 }
 
 * { box-sizing: border-box; }
@@ -86,7 +108,32 @@ a:hover { color: var(--accent-soft); }
 .nav-links a:hover { color: var(--accent); }
 
 /* ---------------- Hero ---------------- */
-.hero { padding: 88px 0 64px; }
+.hero { padding: 88px 0 64px; position: relative; z-index: 0; }
+.hero-ornament {
+  position: absolute;
+  top: 48px;
+  left: auto;
+  right: calc(100% + 16px);   /* tuck into the empty left gutter, clear of the text */
+  width: 180px;
+  z-index: -1;
+  opacity: var(--emblem-opacity);
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.hero-ornament svg { display: block; width: 100%; height: auto; }
+/* The plate lives in the left margin, so only show it once that margin is
+   wide enough to hold it without crowding the text or overflowing the page. */
+@media (max-width: 1099px) { .hero-ornament { display: none; } }
+@media (min-width: 1300px) { .hero-ornament { width: 250px; right: calc(100% + 22px); top: 40px; } }
+@media (min-width: 1500px) { .hero-ornament { width: 300px; right: calc(100% + 30px); top: 32px; } }
+@media (prefers-reduced-motion: no-preference) {
+  .hero-ornament { animation: ornFade 1.2s ease both; }
+  @keyframes ornFade {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: var(--emblem-opacity); transform: none; }
+  }
+}
 .hero-name {
   font-size: clamp(40px, 7vw, 58px);
   margin: 0 0 14px;
