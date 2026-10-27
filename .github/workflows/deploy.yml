@@ -1,9 +1,11 @@
 name: Deploy to GitHub Pages
 
-# Build & deploy on every push to main
+# Deploy on every push to main, and once a day so new Substack posts show up
 on:
   push:
     branches: [main]
+  schedule:
+    - cron: "0 6 * * *"
   workflow_dispatch:
 
 # Permissions required by the Pages deploy action
@@ -26,6 +28,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      # Refresh posts.json from the Substack feed. If Substack is down,
+      # keep the committed snapshot rather than failing the deploy.
+      - name: Fetch Substack posts
+        continue-on-error: true
+        run: python3 scripts/fetch_posts.py
 
       - name: Configure Pages
         uses: actions/configure-pages@v5

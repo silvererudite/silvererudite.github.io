@@ -1,6 +1,6 @@
 /* =============================================================
-   Renders the site from window.SITE_CONFIG and pulls Substack
-   posts live. You normally don't need to edit this file.
+   Renders the site from window.SITE_CONFIG and shows Substack
+   posts from posts.json (refreshed by the deploy workflow). You normally don't need to edit this file.
    ============================================================= */
 (function () {
   "use strict";
@@ -20,7 +20,8 @@
   // Nice label for each link key.
   var LINK_LABELS = {
     email: "Email", github: "GitHub", scholar: "Scholar",
-    linkedin: "LinkedIn", twitter: "Twitter", substack: "Substack",
+    huggingface: "Hugging Face", linkedin: "LinkedIn", twitter: "Twitter",
+    substack: "Substack",
   };
   function hrefFor(key, val) {
     return key === "email" ? "mailto:" + val : val;
@@ -49,11 +50,36 @@
   buildLinks("hero-links");
   buildLinks("footer-links");
 
+  /* ---------- status line ---------- */
+  var status = document.getElementById("hero-status");
+  if (status && cfg.status) { status.textContent = cfg.status; status.hidden = false; }
+
   /* ---------- CV + Substack "all posts" links ---------- */
   var cvLink = document.getElementById("cv-link");
   if (cvLink && cfg.cv) cvLink.href = cfg.cv;
   var subLink = document.getElementById("substack-link");
   if (subLink) subLink.href = cfg.substackUrl || (cfg.links && cfg.links.substack) || "#";
+
+  // Hide a whole section when its config list is empty or missing.
+  function hideSection(id) {
+    var s = document.getElementById(id);
+    if (s) s.hidden = true;
+    var navA = document.querySelector('.nav-links a[href="#' + id + '"]');
+    if (navA) navA.parentNode.hidden = true;
+  }
+
+  /* ---------- news ---------- */
+  (function renderNews() {
+    var ul = document.getElementById("news-list");
+    if (!ul) return;
+    if (!Array.isArray(cfg.news) || !cfg.news.length) return hideSection("news");
+    cfg.news.forEach(function (n) {
+      var li = el("li", "news-item");
+      li.appendChild(el("span", "news-date", esc(n.date)));
+      li.appendChild(el("span", "news-text", n.text)); // trusted HTML from config
+      ul.appendChild(li);
+    });
+  })();
 
   /* ---------- projects ---------- */
   (function renderProjects() {
@@ -108,6 +134,7 @@
       var vwrap = el("div", null);
       vwrap.appendChild(vnode);
       li.appendChild(vwrap);
+      if (p.note) li.appendChild(el("p", "pub-note", esc(p.note)));
       if (Array.isArray(p.links) && p.links.length) {
         var ld = el("div", "pub-links");
         p.links.forEach(function (l) {
@@ -119,10 +146,24 @@
     });
   })();
 
+  /* ---------- about ---------- */
+  (function renderAbout() {
+    var txt = document.getElementById("about-text");
+    if (txt) {
+      var paras = Array.isArray(cfg.about) && cfg.about.length ? cfg.about : [cfg.intro || ""];
+      paras.forEach(function (t) { txt.appendChild(el("p", null, t)); }); // trusted HTML
+    }
+    var ul = document.getElementById("interest-list");
+    if (ul && Array.isArray(cfg.interests)) {
+      cfg.interests.forEach(function (t) { ul.appendChild(el("li", "tag", esc(t))); });
+    }
+  })();
+
   /* =============================================================
-     Substack posts via RSS.
-     Substack's /feed doesn't send CORS headers, so we go through
-     a couple of public read-only proxies and use whichever works.
+     Substack posts.
+     Substack's /feed doesn't send CORS headers and public CORS
+     proxies keep disappearing, so the deploy workflow runs
+     scripts/fetch_posts.py and we read the same-origin posts.json.
      ============================================================= */
   (function renderPosts() {
     var grid = document.getElementById("post-grid");
@@ -130,61 +171,19 @@
     if (!grid) return;
     if (!base) { grid.innerHTML = ""; return; }
 
-    var feed = base + "/feed";
-    var proxies = [
-      function (u) { return "https://api.allorigins.win/raw?url=" + encodeURIComponent(u); },
-      function (u) { return "https://corsproxy.io/?url=" + encodeURIComponent(u); },
-    ];
+    fetch("posts.json", { cache: "no-cache" })
+      .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+      .then(function (items) {
+        if (!Array.isArray(items) || !items.length) throw new Error("empty");
+        paint(items.slice(0, cfg.maxPosts || 6));
+      })
+      .catch(fail);
 
-    tryProxy(0);
-
-    function tryProxy(i) {
-      if (i >= proxies.length) return fail();
-      fetch(proxies[i](feed))
-        .then(function (r) { if (!r.ok) throw new Error(r.status); return r.text(); })
-        .then(function (xml) {
-          var items = parseFeed(xml);
-          if (!items.length) throw new Error("empty");
-          paint(items);
-        })
-        .catch(function () { tryProxy(i + 1); });
-    }
-
-    function parseFeed(xml) {
-      var doc = new DOMParser().parseFromString(xml, "text/xml");
-      var nodes = Array.prototype.slice.call(doc.querySelectorAll("item"));
-      var max = cfg.maxPosts || 6;
-      return nodes.slice(0, max).map(function (it) {
-        var get = function (sel) {
-          var n = it.querySelector(sel);
-          return n ? n.textContent : "";
-        };
-        var content = get("encoded") || get("description") || "";
-        return {
-          title: get("title"),
-          link: get("link"),
-          date: get("pubDate"),
-          image: firstImage(it, content),
-          excerpt: stripHtml(content).slice(0, 160),
-        };
-      });
-    }
-
-    function firstImage(item, content) {
-      // <enclosure url="..."> is what Substack usually provides.
-      var enc = item.querySelector("enclosure");
-      if (enc && enc.getAttribute("url")) return enc.getAttribute("url");
-      var m = /<img[^>]+src=["']([^"']+)["']/i.exec(content);
-      return m ? m[1] : "";
-    }
-    function stripHtml(s) {
-      var d = el("div", null, s);
-      return (d.textContent || "").replace(/\s+/g, " ").trim();
-    }
     function fmtDate(s) {
+      // ISO dates ("2026-06-12") parse as UTC; format in UTC so the day doesn't shift.
       var d = new Date(s);
       if (isNaN(d)) return "";
-      return d.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+      return d.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric", timeZone: "UTC" });
     }
 
     function paint(items) {

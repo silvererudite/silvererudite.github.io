@@ -4,12 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Shamima Hossain</title>
-  <meta name="description" content="Understanding language model capabilities through training data and learning dynamics." />
+  <meta name="description" content="Shamima Hossain: post-training of language models, continually improving agents, human–AI collaboration and multilingual models." />
   <meta name="theme-color" content="#f7f5ef" />
 
   <!-- Open Graph (nice link previews when shared) -->
   <meta property="og:title" content="Shamima Hossain" />
-  <meta property="og:description" content="Understanding language model capabilities through training data and learning dynamics." />
+  <meta property="og:description" content="Shamima Hossain: post-training of language models, continually improving agents, human–AI collaboration and multilingual models." />
+  <meta property="og:url" content="https://silvererudite.github.io/" />
   <meta property="og:type" content="website" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -27,8 +28,8 @@
       <a class="nav-brand" href="#top" data-bind="name">Your Name</a>
       <ul class="nav-links">
         <li><a href="#publications">Publications</a></li>
-        <li><a href="#projects">Projects</a></li>
         <li><a href="#blog">Writing</a></li>
+        <li><a href="#projects">Projects</a></li>
         <li><a href="#about">About</a></li>
       </ul>
     </nav>
@@ -112,10 +113,20 @@
       <h1 class="hero-name" data-bind="name">Your Name</h1>
       <p class="hero-tagline" data-bind="tagline"></p>
       <p class="hero-intro" data-bind="intro"></p>
+      <p class="hero-status" id="hero-status" hidden></p>
       <div class="hero-meta">
         <span class="hero-location" data-bind="location"></span>
         <ul class="hero-links" id="hero-links"><!-- injected --></ul>
       </div>
+    </section>
+
+    <!-- ============ News ============ -->
+    <section id="news" class="section">
+      <div class="section-head">
+        <h2>Lately</h2>
+        <span class="section-rule"></span>
+      </div>
+      <ul class="news-list" id="news-list"><!-- injected --></ul>
     </section>
 
     <!-- ============ Publications ============ -->
@@ -125,15 +136,6 @@
         <span class="section-rule"></span>
       </div>
       <ol class="pub-list" id="pub-list"><!-- injected --></ol>
-    </section>
-
-    <!-- ============ Projects ============ -->
-    <section id="projects" class="section">
-      <div class="section-head">
-        <h2>Projects</h2>
-        <span class="section-rule"></span>
-      </div>
-      <div class="project-list" id="project-list"><!-- injected --></div>
     </section>
 
     <!-- ============ Blog / Writing ============ -->
@@ -150,6 +152,15 @@
       </div>
     </section>
 
+    <!-- ============ Projects ============ -->
+    <section id="projects" class="section">
+      <div class="section-head">
+        <h2>Projects</h2>
+        <span class="section-rule"></span>
+      </div>
+      <div class="project-list" id="project-list"><!-- injected --></div>
+    </section>
+
     <!-- ============ About ============ -->
     <section id="about" class="section">
       <div class="section-head">
@@ -157,9 +168,10 @@
         <span class="section-rule"></span>
       </div>
       <div class="about-body">
-        <p data-bind="intro"></p>
+        <div id="about-text"><!-- injected --></div>
+        <ul class="interest-list" id="interest-list"><!-- injected --></ul>
         <p class="about-cv">
-          <a id="cv-link" href="#" target="_blank" rel="noopener">Download CV (PDF) &rarr;</a>
+          The formal version lives in my <a id="cv-link" href="#" target="_blank" rel="noopener">CV (PDF) &rarr;</a>
         </p>
       </div>
     </section>

@@ -10,13 +10,16 @@ window.SITE_CONFIG = {
   tagline: "Reading models by reading their data.",
   // A slightly longer intro paragraph for the top of the page.
   intro:
-    "I'm a researcher working on how language models acquire knowledge, biases, " +
-    "and task-specific skills across the stages of training." +
-    "I work as a Senior Research Engineer at bKash, where I've contributed to" +
-    "the training data and pipelines behind production LLM systems.",
+    "I'm curious about what post-training actually teaches a language model, and how to " +
+    "build agents that keep getting better at long-horizon scientific work. By day I train " +
+    "models for millions of people at bKash; the rest of the time I'm finishing an MSc at " +
+    "BRAC University, writing things down on Substack, and checking whether famous claims " +
+    "hold up under a fair budget.",
 
   // Where you are / what you're looking for (shown subtly in the header area).
   location: "Dhaka, Bangladesh",
+  // Optional highlighted status line under the intro. Leave "" to hide it.
+  status: "Looking for PhD positions starting in 2027",
 
   /* ---- Links shown in the top nav and footer ----
      Remove any line you don't want. Leave the value as "" to hide it. */
@@ -24,6 +27,7 @@ window.SITE_CONFIG = {
     email: "shamima2hossain@gmail.com",
     github: "https://github.com/silvererudite",
     scholar: "https://scholar.google.com/citations?user=Audko4wAAAAJ",
+    huggingface: "https://huggingface.co/Shamima",
     linkedin: "https://www.linkedin.com/in/shamima-hossain-127454199/",
     twitter: "https://x.com/ShamimaHossai13",
     substack: "https://shamimah.substack.com",
@@ -32,50 +36,130 @@ window.SITE_CONFIG = {
   // Path to your CV/resume PDF (drop the file in assets/ and update the name).
   cv: "assets/cv.pdf",
 
+  /* ---- About ----
+     Paragraphs shown in the About section (simple HTML allowed),
+     then your research interests as tags. */
+  about: [
+    "At bKash I built the data curation and training pipeline behind AVA, our first " +
+    "LLM-based assistant. Watching small filtering decisions turn into model behaviour in " +
+    "front of millions of users is what got me hooked on one question: what does training " +
+    "actually teach a model?",
+    "That question has turned into a habit. I take a method's headline claim and try to " +
+    "break it under a careful, budget-matched test. Sometimes it holds. When we tested " +
+    "DPO's promise that your policy is “secretly a reward model”, an untrained SFT baseline " +
+    "beat both trained scorers on reasoning, which is still the most surprising result I've had.",
+    "Right now I'm writing an MSc thesis on reinforcement learning for agents that reuse what " +
+    "they've already learned in automated scientific discovery. Next, I want to do a PhD on " +
+    "post-training and on agents that keep improving instead of plateauing.",
+    "I think out loud on Substack (lecture notes as I work through Stanford's CS224R, critiques " +
+    "of classic papers) and now and then run paper-reading sessions, like this one on " +
+    '<a href="https://youtu.be/ywYjTbdR1XA" target="_blank" rel="noopener"><em>Physics of ' +
+    "Language Models</em></a>.",
+  ],
+  interests: [
+    "Post-training of language models",
+    "Continually improving agents",
+    "Human–AI collaboration",
+    "Multilingual models",
+  ],
+
+  /* ---- Lately ----
+     Newest first. `text` may contain simple HTML (links, <em>). */
+  news: [
+    { date: "2026", text: "Reviewing for the GlobalSouthInAI workshop at NeurIPS 2026." },
+    { date: "Aug 2026", text: "Joined the ELLIS Summer School on AI for Research at Aalto (one of 100 participants); our team made the <strong>top 10</strong> of the LUMI hackathon by auditing cognitive-science data with LLM agents." },
+    { date: "Mar 2026", text: "Went to Amsterdam for the ELLIS Winter School on Foundation Models, alongside 260 early-career researchers from 128 institutions." },
+    { date: "Jul 2025", text: "Presented my sole-author poster on multi-hop reasoning for factual VLMs at ICML 2025 (NewInML)." },
+  ],
+
   /* ---- Substack blog ----
-     Your publication's base URL. The site fetches <substack>/feed
-     to render recent posts with thumbnails. */
+     Your publication's base URL. Posts are fetched from <substack>/feed
+     into posts.json each time the site deploys (and once a day). */
   substackUrl: "https://shamimah.substack.com/",
-  maxPosts: 5,
+  maxPosts: 6,
+
+  /* ---- Publications ----
+     For PhD apps. `award`, `note` and `links` are optional. */
+  publications: [
+    {
+      title: "Exploring DPO's Implicit Reward",
+      authors: "Shamima Hossain, Laila Sumiya Khan Nilo, Abdullah Al Mahmud",
+      venue: "Manuscript",
+      year: "2026",
+      award: "",
+      note:
+        "Tests DPO's “secretly a reward model” claim under a budget-matched setup " +
+        "(Qwen2.5-0.5B, one shared SFT checkpoint, five seeds). An explicit Bradley–Terry " +
+        "reward model wins in distribution, the gap doesn't widen under shift, and an " +
+        "untrained SFT log-probability baseline beats both trained scorers on RewardBench-Reasoning.",
+      links: [
+        { label: "PDF", url: "https://drive.google.com/file/d/13BjBE69g2RpJt41de6hgIns6T7sxxLcc/view?usp=sharing" },
+        { label: "Code", url: "https://github.com/silvererudite/dpo-implicit-reward" },
+        { label: "Checkpoints", url: "https://huggingface.co/Shamima/dpo-implicit-reward" },
+      ],
+    },
+    {
+      title: "Probing Structural Bias in Stable Diffusion 3: A Stereotype Content Model Analysis",
+      authors: "Shamima Hossain",
+      venue: "Manuscript",
+      year: "2026",
+      award: "",
+      note:
+        "A Bayesian errors-in-variables model over 6,600 generated portraits of 66 social groups " +
+        "shows SD3 reliably reproduces the warmth–competence structure but collapses the " +
+        "“envy” quadrant, so text-to-image bias reads as stereotype geometry, not just frequency.",
+      links: [
+        { label: "PDF", url: "https://drive.google.com/file/d/1M4fnze7cGLW7ZjC2AoeVjuZjaNiNH2SQ/view?usp=sharing" },
+        { label: "Code", url: "https://github.com/silvererudite/diffusion_scm" },
+        { label: "Corpus", url: "https://huggingface.co/datasets/Shamima/sd3-medium-scm-corpus" },
+      ],
+    },
+    {
+      title: "Beyond Generation: Multi-Hop Reasoning for Factual Accuracy in Vision–Language Models",
+      authors: "Shamima Hossain",
+      venue: "ICML 2025 NewInML Workshop",
+      year: "2025",
+      award: "Poster",
+      note: "",
+      links: [
+        { label: "arXiv", url: "https://arxiv.org/abs/2511.20531" },
+      ],
+    },
+  ],
 
   /* ---- Projects ----
      Add/remove entries freely. `link` and `repo` are optional.
      `link` is a live demo/page (optional); `repo` is the code. */
   projects: [
     {
-      title: "Identifying RAG Outputs in LLM-Generated Responses",
+      title: "Identifying Retrieved Content in RAG Outputs",
       year: "",
       blurb:
-        "A method combining chain-of-thought reasoning and token manipulation that " +
-        "lets users visually identify retrieved external knowledge inside LLM outputs. " +
-        "Showed that models can self-identify gaps in their parametric knowledge and " +
-        "tag externally retrieved information — bearing on what models learn from " +
-        "training data versus context.",
+        "Combined chain-of-thought prompting with token-level manipulation so users can " +
+        "visually tell retrieved external knowledge apart from parametric knowledge in LLM " +
+        "outputs. Models turn out to be able to flag gaps in what they know.",
       tags: ["RAG", "Interpretability", "LLMs"],
       link: "",
       repo: "https://github.com/silvererudite/generative-ai/tree/main/interpretable_generative_ai",
     },
     {
-      title: "Factual Image Captioning with Vision–Language Models and Knowledge Graphs",
+      title: "Knowledge-Graph-Augmented Factual Image Captioning",
       year: "",
       blurb:
-        "Controlled experiments on hallucination in VLMs, injecting hierarchical " +
-        "structured knowledge (country → city → landmark) to improve factual accuracy " +
-        "in image captioning. Comparing hierarchical vs. unstructured augmentation " +
-        "(Qwen2-VL-2B-Instruct, GraphX) showed hierarchy notably improves a model's " +
-        "ability to fact-check visual content.",
+        "The precursor to the ICML workshop paper: a controlled comparison of hierarchical " +
+        "(country → city → landmark) vs. unstructured knowledge injection with " +
+        "Qwen2-VL-2B-Instruct and GraphX. Hierarchical structure measurably improves " +
+        "fact-checking of visual content.",
       tags: ["Vision–Language", "Knowledge Graphs", "Factuality"],
       link: "",
       repo: "https://github.com/silvererudite/generative-ai/blob/main/vision_language_models/kg-augmented-vlm-for-factual-image-captioning.ipynb",
     },
     {
-      title: "Extracting Reusable Filters from Diffusion Models for Controlled Image Manipulation",
+      title: "Reusable Semantic Filters from Diffusion-Model Text Embeddings",
       year: "",
       blurb:
-        "Computed semantic difference matrices from text embeddings in diffusion " +
-        "models, enabling visual exploration of prompt-driven transformations in " +
-        "latent and pixel space. Prompt-difference matrices mapped to transferable " +
-        "semantic shifts across images — a step toward interpreting latent-space dynamics.",
+        "Computed prompt-difference matrices in text-embedding space and showed they map to " +
+        "transferable semantic shifts across images, in both latent and pixel space.",
       tags: ["Diffusion Models", "Interpretability"],
       link: "",
       repo: "https://github.com/silvererudite/diffusion-land/tree/main/extract_image_filters_from_diffusion_models",
@@ -93,28 +177,4 @@ window.SITE_CONFIG = {
     },
   ],
 
-  /* ---- Publications ----
-     For PhD apps. `award` and `links` are optional. */
-  publications: [
-    {
-      title: "Beyond Generation: Multi-Hop Reasoning for Factual Accuracy in Vision–Language Models",
-      authors: "Shamima Hossain",
-      venue: "ICML 2025 NewInML Workshop",
-      year: "2025",
-      award: "Poster",
-      links: [
-        { label: "arXiv", url: "https://arxiv.org/abs/2511.20531" },
-      ],
-    },
-    {
-      title: "Smart Companion Agent for Mental Well-being Using Deep Learning and NLP",
-      authors: "Shamima Hossain et al.",
-      venue: "Undergraduate Thesis, BRAC University",
-      year: "2021",
-      award: "",
-      links: [
-        { label: "Thesis", url: "https://dspace.bracu.ac.bd/xmlui/handle/10361/14973" },
-      ],
-    },
-  ],
 };

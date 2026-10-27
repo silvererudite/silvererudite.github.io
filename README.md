@@ -13,8 +13,8 @@ just static files you can host free on GitHub Pages.
 - `cv` — put your PDF in `assets/` and point to it (e.g. `assets/cv.pdf`)
 - `substackUrl` — your publication base URL, e.g. `https://yourname.substack.com`
   (posts and thumbnails are fetched automatically from its RSS feed)
-- `projects` — add/remove entries
-- `publications` — add/remove entries
+- `about`, `interests`, `news` — the About and Lately sections
+- `publications`, `projects` — add/remove entries
 
 You shouldn't need to touch `index.html`, `styles.css`, or `main.js`.
 To change colors, edit the variables at the top of `styles.css`.
@@ -22,7 +22,6 @@ To change colors, edit the variables at the top of `styles.css`.
 ## Preview locally
 
 ```bash
-cd personal_website
 python3 -m http.server 8000
 # open http://localhost:8000
 ```
@@ -43,16 +42,21 @@ python3 -m http.server 8000
    git remote add origin https://github.com/<username>/<repo>.git
    git push -u origin main
    ```
-3. On GitHub: **Settings → Pages → Build and deployment → Source: Deploy from a
-   branch**, branch `main`, folder `/ (root)`. Save.
+3. On GitHub: **Settings → Pages → Build and deployment → Source: GitHub
+   Actions**. The included workflow deploys on every push.
 4. Wait ~1 minute, then visit your Pages URL.
 
 The `.nojekyll` file is included so GitHub serves the files as-is.
 
 ## Notes on the Substack feed
 
-Substack's RSS doesn't allow direct browser requests (CORS), so the site reads it
-through a public read-only proxy and falls back to a second one if the first is
-down. If both ever fail, visitors see a "Read on Substack →" link instead. Nothing
-to configure — but if you'd rather not depend on a proxy, tell your assistant and
-they can switch the Writing section to hand-listed posts.
+Substack's RSS doesn't allow direct browser requests (CORS), and the public CORS
+proxies the site used to rely on stopped working. Instead, the deploy workflow
+runs `scripts/fetch_posts.py`, which reads `<substackUrl>/feed` and writes
+`posts.json`; the page loads that same-origin file. The workflow runs on every
+push and once a day, so new posts appear within ~24 hours. Run
+**Actions → Deploy to GitHub Pages → Run workflow** to refresh immediately, or
+`python3 scripts/fetch_posts.py` locally to update the committed snapshot.
+
+This requires **Settings → Pages → Source: GitHub Actions** (not "Deploy from a
+branch").

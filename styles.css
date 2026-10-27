@@ -150,6 +150,17 @@ a:hover { color: var(--accent-soft); }
   margin: 0 0 30px;
   max-width: 60ch;
 }
+.hero-status {
+  display: inline-block;
+  margin: -12px 0 28px;
+  font-size: 14.5px;
+  font-weight: 500;
+  color: var(--accent);
+  border: 1px solid var(--accent-soft);
+  border-radius: 100px;
+  padding: 3px 14px;
+}
+.hero-status[hidden] { display: none; }
 .hero-meta {
   display: flex;
   flex-wrap: wrap;
@@ -163,7 +174,7 @@ a:hover { color: var(--accent-soft); }
 .hero-links {
   display: flex;
   flex-wrap: wrap;
-  gap: 18px;
+  gap: 8px 18px;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -295,8 +306,28 @@ a:hover { color: var(--accent-soft); }
   border-radius: 100px;
   padding: 1px 8px;
 }
+.pub-note { color: var(--ink-soft); font-size: 15px; margin: 6px 0 0; max-width: 62ch; }
 .pub-links { display: flex; gap: 14px; margin-top: 7px; }
 .pub-links a { font-size: 13.5px; font-weight: 500; }
+
+/* ---------------- News ---------------- */
+.news-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.news-item { display: grid; grid-template-columns: 82px 1fr; gap: 16px; }
+.news-date {
+  color: var(--ink-faint);
+  font-size: 14px;
+  font-variant-numeric: tabular-nums;
+  padding-top: 2px;
+}
+.news-text { color: var(--ink-soft); font-size: 15.5px; }
+.news-text strong { color: var(--ink); font-weight: 600; }
 
 /* ---------------- Blog / Posts ---------------- */
 .post-grid {
@@ -358,6 +389,15 @@ a:hover { color: var(--accent-soft); }
 
 /* ---------------- About ---------------- */
 .about-body { max-width: 62ch; color: var(--ink-soft); }
+.interest-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 18px 0 0;
+  padding: 0;
+}
+.interest-list .tag { font-size: 13px; color: var(--ink-soft); padding: 3px 12px; }
 .about-cv { margin-top: 18px; }
 .about-cv a { font-weight: 500; }
 
@@ -376,7 +416,7 @@ a:hover { color: var(--accent-soft); }
   font-size: 14px;
 }
 .footer-name { font-family: "EB Garamond", serif; }
-.footer-links { display: flex; gap: 18px; list-style: none; margin: 0; padding: 0; }
+.footer-links { display: flex; flex-wrap: wrap; gap: 8px 18px; list-style: none; margin: 0; padding: 0; }
 .footer-links a { color: var(--ink-soft); font-size: 14px; }
 .footer-links a:hover { color: var(--accent); }
 
@@ -387,6 +427,7 @@ a:hover { color: var(--accent-soft); }
   .hero { padding: 56px 0 44px; }
   .post-grid { grid-template-columns: 1fr; }
   .project-top { flex-direction: column; gap: 2px; }
+  .news-item { grid-template-columns: 1fr; gap: 0; }
 }
 
 @media (prefers-reduced-motion: reduce) {
