@@ -45,9 +45,6 @@ window.SITE_CONFIG = {
     "break it under a careful, budget-matched test. Sometimes it holds. When we tested " +
     "DPO's promise that your policy is “secretly a reward model”, an untrained SFT baseline " +
     "beat both trained scorers on reasoning, which is still the most surprising result I've had.",
-    "Right now I'm writing an MSc thesis on reinforcement learning for agents that reuse what " +
-    "they've already learned in automated scientific discovery. Next, I want to do a PhD on " +
-    "post-training and on agents that keep improving instead of plateauing.",
     "I think out loud on Substack.",
   ],
   interests: [
