@@ -167,6 +167,7 @@ a:hover { color: var(--accent-soft); }
   align-items: center;
   gap: 16px 22px;
 }
+.hero-location:empty { display: none; }
 .hero-location {
   color: var(--ink-faint);
   font-size: 14.5px;

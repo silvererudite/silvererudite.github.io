@@ -11,15 +11,12 @@ window.SITE_CONFIG = {
   // A slightly longer intro paragraph for the top of the page.
   intro:
     "I'm curious about what post-training actually teaches a language model, and how to " +
-    "build agents that keep getting better at long-horizon scientific work. By day I train " +
-    "models for millions of people at bKash; the rest of the time I'm finishing an MSc at " +
-    "BRAC University, writing things down on Substack, and checking whether famous claims " +
-    "hold up under a fair budget.",
+    "build agents that keep getting better at long-horizon scientific work.",
 
   // Where you are / what you're looking for (shown subtly in the header area).
-  location: "Dhaka, Bangladesh",
+  location: "",
   // Optional highlighted status line under the intro. Leave "" to hide it.
-  status: "Looking for PhD positions starting in 2027",
+  status: "",
 
   /* ---- Links shown in the top nav and footer ----
      Remove any line you don't want. Leave the value as "" to hide it. */
@@ -51,10 +48,7 @@ window.SITE_CONFIG = {
     "Right now I'm writing an MSc thesis on reinforcement learning for agents that reuse what " +
     "they've already learned in automated scientific discovery. Next, I want to do a PhD on " +
     "post-training and on agents that keep improving instead of plateauing.",
-    "I think out loud on Substack (lecture notes as I work through Stanford's CS224R, critiques " +
-    "of classic papers) and now and then run paper-reading sessions, like this one on " +
-    '<a href="https://youtu.be/ywYjTbdR1XA" target="_blank" rel="noopener"><em>Physics of ' +
-    "Language Models</em></a>.",
+    "I think out loud on Substack.",
   ],
   interests: [
     "Post-training of language models",
